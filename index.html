@@ -3,27 +3,81 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="বাংলা ও ইংরেজি লেখা সহজে PDF হিসেবে সংরক্ষণ করুন। বিনামূল্যের অনলাইন বাংলা PDF মেকার।">
+  <meta name="description" content="বাংলা ও ইংরেজি লেখা সহজে PDF হিসেবে সংরক্ষণ করুন। ফ্রি অনলাইন Text to PDF টুল।">
   <meta name="theme-color" content="#0f766e">
-  <title>বাংলা PDF মেকার — বিনামূল্যে Text to PDF</title>
+  <title>Bangla PDF Maker — Text to PDF</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="#top" aria-label="বাংলা PDF মেকার হোম">
+    <a class="brand" href="#top" aria-label="Bangla PDF Maker হোম">
       <span class="brand-icon" aria-hidden="true">PDF</span>
-      <span><strong>বাংলা PDF মেকার</strong><small>লেখা পেস্ট করুন, PDF সেভ করুন</small></span>
+      <span><strong>Bangla PDF Maker</strong><small>বাংলা ও ইংরেজি লেখা থেকে PDF</small></span>
     </a>
     <span class="free-tag">সম্পূর্ণ ফ্রি</span>
   </header>
 
   <main id="top" class="layout">
     <section class="intro">
-      <h1>লেখা থেকে <span>PDF</span></h1>
-      <p>বাংলা অথবা ইংরেজি লেখা নিচের বক্সে পেস্ট করুন। তারপর PDF ডাউনলোড বাটনে চাপুন।</p>
+      <span class="eyebrow">সহজ • দ্রুত • ব্যক্তিগত</span>
+      <h1>আপনার লেখাকে <span>PDF</span> বানান</h1>
+      <p>বাংলা বা ইংরেজি লেখা পেস্ট করুন, প্রয়োজনমতো সাজান, তারপর PDF হিসেবে সংরক্ষণ করুন। আপনার লেখা কোনো সার্ভারে পাঠানো হয় না।</p>
     </section>
 
-    <section class="editor-panel" aria-label="PDF তৈরির টুল">
-      <div class="section-heading">
-        <div><h2>আপনার লেখা</h2><p>এখানে লিখুন অথবা কপি করা লেখা পেস্ট করুন</p></div>
-        <button type="button" id="clearBtn" class="text-button">লেখা মুছুন</button>
+    <section class="workspace" aria-label="PDF তৈরির টুল">
+      <div class="editor-panel">
+        <div class="section-heading">
+          <div><h2>আপনার লেখা</h2><p>এখানে লিখুন অথবা কপি করা লেখা পেস্ট করুন</p></div>
+          <button type="button" id="clearBtn" class="text-button">লেখা মুছুন</button>
+        </div>
+        <label class="field-label" for="docTitle">PDF-এর শিরোনাম (ঐচ্ছিক)</label>
+        <input id="docTitle" type="text" maxlength="120" placeholder="যেমন: আমার নোট">
+        <label class="field-label" for="textInput">লেখা</label>
+        <textarea id="textInput" spellcheck="false" placeholder="এখানে বাংলা বা English লেখা পেস্ট করুন..." aria-describedby="wordCount"></textarea>
+        <div class="editor-footer"><span id="wordCount">০ শব্দ · ০ অক্ষর</span><button type="button" id="sampleBtn" class="text-button">নমুনা লেখা</button></div>
+      </div>
+
+      <aside class="settings-panel">
+        <h2>PDF সেটিংস</h2>
+        <div class="field-group">
+          <label class="field-label" for="pageSize">পেজ সাইজ</label>
+          <select id="pageSize"><option value="A4">A4</option><option value="Letter">Letter</option></select>
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="fontSize">লেখার আকার <strong id="fontSizeValue">১২ pt</strong></label>
+          <input id="fontSize" type="range" min="9" max="24" value="12">
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="lineSpacing">লাইন স্পেসিং <strong id="lineSpacingValue">১.৬</strong></label>
+          <input id="lineSpacing" type="range" min="12" max="24" value="16">
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="margin">মার্জিন</label>
+          <select id="margin"><option value="12">স্বাভাবিক (১২ মিমি)</option><option value="18" selected>মাঝারি (১৮ মিমি)</option><option value="25">বড় (২৫ মিমি)</option><option value="8">ছোট (৮ মিমি)</option></select>
+        </div>
+        <div class="setting-note"><span aria-hidden="true">ⓘ</span><p>PDF তৈরি করতে পরের ধাপে ব্রাউজারের Print উইন্ডো খুলবে। সেখানে <b>Save as PDF</b> নির্বাচন করুন। এতে বাংলা লেখার অক্ষর ঠিক রাখার জন্য ব্রাউজারের নিজস্ব ফন্ট রেন্ডারিং ব্যবহার হবে।</p></div>
+        <button type="button" id="previewBtn" class="button button-secondary"><span aria-hidden="true">▣</span> প্রিভিউ দেখুন</button>
+        <button type="button" id="pdfBtn" class="button button-primary"><span aria-hidden="true">↓</span> PDF হিসেবে সেভ করুন</button>
+        <p class="privacy-note"><span aria-hidden="true">🔒</span> আপনার লেখা এই পেজের বাইরে পাঠানো হয় না।</p>
+      </aside>
+    </section>
+
+    <section id="previewSection" class="preview-section" hidden>
+      <div class="section-heading"><div><h2>প্রিভিউ</h2><p>PDF-এ লেখা কেমন দেখাবে তা দেখুন</p></div><button type="button" id="closePreviewBtn" class="text-button">বন্ধ করুন</button></div>
+      <article id="previewPaper" class="preview-paper" aria-live="polite"></article>
+    </section>
+
+    <section class="steps">
+      <h2>কীভাবে PDF সেভ করবেন?</h2>
+      <div class="steps-grid">
+        <div class="step"><span>১</span><strong>লেখা পেস্ট করুন</strong><p>বাংলা বা ইংরেজি যেকোনো লেখা দিন।</p></div>
+        <div class="step"><span>২</span><strong>সেটিংস ঠিক করুন</strong><p>পেজ সাইজ, ফন্ট ও মার্জিন বেছে নিন।</p></div>
+        <div class="step"><span>৩</span><strong>PDF সেভ করুন</strong><p>Print উইন্ডোতে “Save as PDF” বেছে নিন।</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer><p>© <span id="year"></span> Bangla PDF Maker · বিনামূল্যে ব্যবহার করুন</p><p>আপনার লেখা শুধু আপনার ব্রাউজারেই প্রক্রিয়া করা হয়।</p></footer>
+  <script src="script.js"></script>
+</body>
+</html>
